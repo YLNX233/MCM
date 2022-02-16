@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
+from plotdf import plotdf
 
 def diff_eg(y_list, x, a, b):
     """
