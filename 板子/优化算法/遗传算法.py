@@ -1,4 +1,3 @@
-from turtle import color
 from sko.GA import GA
 import matplotlib.pyplot as plt
 import pandas as pd
