@@ -35,8 +35,9 @@ x, y = np.meshgrid( x, y, indexing = 'xy', sparse = False)
 
 u = y
 v = -9.8*np.sin(x)/0.5 - 0.05*x/0.3/0.5
-color = x + y # 颜色
-plt.quiver(x, y, u, v, color) # 箭头
+color = np.sqrt(u**2 + v**2) # 颜色
+
+plt.quiver(x, y, u, v, color,) # 箭头
 plt.streamplot(x, y, u, v, color=color,linewidth=v/10) # 流
 
 plt.colorbar()
