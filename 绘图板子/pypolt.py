@@ -12,7 +12,7 @@ def f(x,g=1,l=1,m=1,b=1):
 
 # print(plt.style.available)
 # 双变量微分方程相图
-plt.style.use('dark_background')# 主题可以改一改，虽然还是有点丑
+plt.style.use('seaborn-deep')# 主题可以改一改，虽然还是有点丑
 plotdf(f, # 微分方程。定义如上，所有自变量打包在一个x里面
     np.array([xmin,xmax]), # [xmin,xmax]
     np.array([ymin,ymax]),# [ymin,ymax]
