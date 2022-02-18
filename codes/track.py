@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import geotable as geo
-from libs import *
+from codes.libs import *
 # %% 全局变量
 EARTH_R = 6371.393
 STEPS = 10000 # 地图中点的数目
