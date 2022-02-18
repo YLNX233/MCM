@@ -40,3 +40,5 @@ y,x,h = resample([y,x,h])
 plt.scatter(x,y,c=h,s=0.5)
 plt.colorbar()
 plt.show()
+
+# %% 计算出坡度、方向、曲率关于距离的函数
