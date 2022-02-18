@@ -8,8 +8,10 @@
 
     dp[curv] = max(dp[curv]，dp[curv - curw]+vali)
     遍历方式：
-        物品 0->n
-        体积 v->wi(若反过来，则可能使用同一个物品多次)
+        物品 0-
+n
+        体积 v-
+wi(若反过来，则可能使用同一个物品多次)
 
 ### 完全背包
 
@@ -17,9 +19,12 @@
 
     dp[volume - k*wi] = max(dp[volume] + gain, self)
     遍历方式：
-        物品 0->n
-        体积 0->v
-        while EnougthSpace k->∞
+        物品 0-
+n
+        体积 0-
+v
+        while EnougthSpace k-
+∞
 
 ### 多重背包
 
@@ -91,9 +96,12 @@ dp数组存第i级最短时间
 
 转移方程：
 
-    i 0->maxlen : dp[lb(data[i])] = data[i]   (nlogn)
-    i 0->maxlen :                             (n²)(需要记录全局dp最大的下标)
-        j 0->i-1 : 
+    i 0-
+maxlen : dp[lb(data[i])] = data[i]   (nlogn)
+    i 0-
+maxlen :                             (n²)(需要记录全局dp最大的下标)
+        j 0-
+i-1 : 
             if(data[i]<data[j])
                 dp[i] = max(self,dp[j]+1)    
 
@@ -132,7 +140,8 @@ dp数组存第i级最短时间
 
 为了防止出界，字符串从下标1开始有效
 
-dp状态定义为：从子串Ai->Bj的编辑距离（所需要的最少改动）
+dp状态定义为：从子串Ai-
+Bj的编辑距离（所需要的最少改动）
 
 初始化 dp[i][0] = dp[0][i] = i;其余inf
 

@@ -9,10 +9,12 @@ struct Circle
     vec vec(double rad){return vec(p.x+r*cos(rad),p.y+r*sin(rad));}
 };
 //判断一直线与圆是否相交并求交点
-int L_C(Line l,Circle c,vector<vec>&ve)
+int L_C(Line l,Circle c,vector<vec
+&ve)
 {
     vec p = c.p;double r = c.r,dis = Dis_P_L(p,l);
-    if(dcmp(dis-r)>0)return 0;
+    if(dcmp(dis-r)
+0)return 0;
     else if(!dcmp(dis-r))
     {
         ve.push_back(P_L(p,l));
@@ -25,7 +27,8 @@ int L_C(Line l,Circle c,vector<vec>&ve)
     return 2;
 }
 //判断圆与圆相交并求交点
-int C_C(Circle a,Circle b,vector<vecs>&ve)
+int C_C(Circle a,Circle b,vector<vecs
+&ve)
 {
     double dis = lth(a.p-b.p);
     if(!dcmp(dis))
@@ -50,7 +53,8 @@ int C_C(Circle a,Circle b,vector<vecs>&ve)
 }
 
 //过顶点做圆的切线，返回切线条数，在ve中是切线方向向量
-int T_P_C(Circle c,vec p,vector<vec>&ve)
+int T_P_C(Circle c,vec p,vector<vec
+&ve)
 {
     vec v = c.p-p;
     double dis = lth(v);
@@ -67,9 +71,12 @@ int T_P_C(Circle c,vec p,vector<vec>&ve)
 
 //两圆公切线，返回公切线条数，共圆返回-1
 //pa,pb分别是两个圆上的切点
-int T_C_C(Circle a,Circle b,vector<vec>&pa,vector<vec>&pb)
+int T_C_C(Circle a,Circle b,vector<vec
+&pa,vector<vec
+&pb)
 {
-    if(a.r>b.r)swap(a,b),swap(pa,pb);
+    if(a.r
+b.r)swap(a,b),swap(pa,pb);
     double dis = lth(a.p-b.p),rd = fabs(a.r-b.r),rs = a.r+b.r;
     if(dcmp(dis-rd)<0)return 0;
     if(!dcmp(dis)&&!dcmp(a.r-b.r))return -1;
@@ -86,7 +93,8 @@ int T_C_C(Circle a,Circle b,vector<vec>&pa,vector<vec>&pb)
     {
         pa.push_back(a.vec(rad)),pb.push_back(b.vec(-rad));
         return 3;
-    }else if(dcmp(dis-rs)>0)
+    }else if(dcmp(dis-rs)
+0)
     {
         drad = acos(rs/dis);
         pa.push_back(a.vec(rad+drad)),pb.push_back(b.vec(rad-drad));

@@ -16,10 +16,14 @@ way_count = new llint[n + 1];	memset(way_count, 0, sizeof(llint) * (n + 1));
 struct node_dist {
 		int p;
 		llint dis;
-		inline friend bool operator < (node_dist a, node_dist b) { return a.dis > b.dis; }
-		node_dist(int p, llint dis) { this->p = p; this->dis = dis; }
+		inline friend bool operator < (node_dist a, node_dist b) { return a.dis 
+ b.dis; }
+		node_dist(int p, llint dis) { this-
+p = p; this-
+dis = dis; }
 	};
-	priority_queue<node_dist> heap;
+	priority_queue<node_dist
+ heap;
 
 void Dij(int start)
 {

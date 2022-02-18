@@ -20,8 +20,10 @@ for(int i = 0; i < len; i++){
     sum[i] %= k;
 }
 len = len1 + len2 - 1;
-while(sum[len] <= 0 && len > 0) len--;
-//从len到0是高位->低位
+while(sum[len] <= 0 && len 
+ 0) len--;
+//从len到0是高位-
+低位
 ```
 
 ```cpp
@@ -49,7 +51,8 @@ void change(Complex y[], int len){
     for(i = 1, j = len / 2; i < len - 1; i++){
         if(i < j) swap(y[i], y[j]);
         k = len / 2;
-        while(j >= k){
+        while(j 
+= k){
             j -= k;
             k /= 2;
         }
@@ -118,8 +121,10 @@ int main(void)
             sum[i] %= k;
         }
         len = len1 + len2 - 1;
-        while(sum[len] <= 0 && len > 0) len--;
-        for(int i = len; i >= 0; i--)
+        while(sum[len] <= 0 && len 
+ 0) len--;
+        for(int i = len; i 
+= 0; i--)
                 printf("%c", sum[i] + '0');
         printf("\n");
     }

@@ -45,7 +45,11 @@ void fft(complex* f, int len, bool flag)
 
 int main()
 {
-	cin >> n >> m;
+	cin 
+
+ n 
+
+ m;
 	for (int i = 0; i <= n; i++)
 		scanf("%lf", &poly1[i].real);
 	for (int i = 0; i <= m; i++)

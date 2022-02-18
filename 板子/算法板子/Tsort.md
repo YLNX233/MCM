@@ -10,7 +10,8 @@ int Topo_node[MAXN],ans[MAXN],ans_i=0;
 void Topological_Sort_max()
 {
 	//《序号，拓扑序》
-	priority_queue<int> indeg_0;
+	priority_queue<int
+ indeg_0;
 	int* ans = new int[n + 1]; int ans_i = 0;
 	//这里决定优先输出编号大的节点
 	for (int i = 0;i<nod.size();i++)

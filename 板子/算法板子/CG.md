@@ -6,7 +6,8 @@ const double eps = 10e-6;
 const double pi = acos(-1);
 int dcmp(double x) {
 	if (fabs(x) < eps)	return 0; 
-	return x > 0 ? 1 : -1;
+	return x 
+ 0 ? 1 : -1;
 }
 
 //计算几何基本内容 from LiGuanlin1124
@@ -23,7 +24,8 @@ struct vec{
 	double operator * (const vec& a)const	{ return x*a.x + y*a.y; }//点乘
 	double operator ^ (const vec& a)const	{ return x*a.y - y*a.x; }//叉乘
 
-	bool operator < (const vec& a)const		{ return x != a.x ? x < a.x : y < a.y; }//右>上
+	bool operator < (const vec& a)const		{ return x != a.x ? x < a.x : y < a.y; }//右
+上
 	bool operator == (const vec & a)const	{ return (!dcmp(a.x - x)) && (!dcmp(a.y - y)); }
 };
 	
@@ -63,7 +65,8 @@ double dis_PS(vec p, vec a1, vec a2)
 	vec v1 = a2 - a1, v2 = p - a1, v3 = p - a2;
 
 	if (v1 * v2 <= 0)		return len(v2);
-	else if (v1 * v3 >= 0)	return len(v3);
+	else if (v1 * v3 
+= 0)	return len(v3);
 	else					return (v1 ^ v2) / len(v1);
 }
 //是否相交(跨立)
@@ -100,7 +103,8 @@ bool on_seg(vec p, vec a1, vec a2)
 }
 
 //多边形
-typedef vector<vec> polygon;
+typedef vector<vec
+ polygon;
 
 //从点集建凸包
 polygon build_convex(int n, vec p[])
@@ -111,14 +115,17 @@ polygon build_convex(int n, vec p[])
 	//下凸包
 	for (int i = 0; i < n; i++)
 	{
-		while (count > 1 && ((ans[count - 1] - ans[count - 2]) ^ (p[i] - ans[count - 2])) <= 0)	count--;
+		while (count 
+ 1 && ((ans[count - 1] - ans[count - 2]) ^ (p[i] - ans[count - 2])) <= 0)	count--;
 		ans[count++] = p[i];
 	}
 	//上凸包
 	int lim = count;
-	for (int i = n - 2; i >= 0; i--)
+	for (int i = n - 2; i 
+= 0; i--)
 	{
-		while (count > lim && ((ans[count - 1] - ans[count - 2]) ^ (p[i] - ans[count - 2])) <= 0)	count--;
+		while (count 
+ lim && ((ans[count - 1] - ans[count - 2]) ^ (p[i] - ans[count - 2])) <= 0)	count--;
 		ans[count++] = p[i];
 	}
 	if (count != 1)	count--;
@@ -141,7 +148,8 @@ double rotate_stuck(polygon p)
 	{
 		//printf("%lf %lf\n", p[i].x, p[i].y);
 		vec edg = p[i] - p[i + 1];
-		while (fabs(edg ^ (p[i] - p[q+1])) > fabs(edg ^ (p[i] - p[q])))	q = (q + 1) % n;
+		while (fabs(edg ^ (p[i] - p[q+1])) 
+ fabs(edg ^ (p[i] - p[q])))	q = (q + 1) % n;
 		ans = max(ans, max(len(p[i]-p[q]),len(p[i+1]-p[q+1])));
 	}
 	return ans;

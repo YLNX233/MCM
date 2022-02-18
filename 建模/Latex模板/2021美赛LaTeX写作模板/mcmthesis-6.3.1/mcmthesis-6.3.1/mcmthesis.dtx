@@ -19,13 +19,16 @@
 %
 % The Current Maintainer of this work is Liam Huang.
 %
-%<*internal>
+%<*internal
+
 \begingroup
   \def\LaTeXeName{LaTeX2e}
 \expandafter\endgroup\ifx\LaTeXeName\fmtname\else
 \csname fi\endcsname
-%</internal>
-%<*install>
+%</internal
+
+%<*install
+
 \input docstrip.tex
 \keepsilent
 \askforoverwritefalse
@@ -98,11 +101,15 @@ and the derived files             \jobname.cls,
 \Msg{* Happy TeXing!                                             *}
 \Msg{*************************************************************}
 \endbatchfile
-%</install>
-%<*internal>
+%</install
+
+%<*internal
+
 \fi
-%</internal>
-%<*driver>
+%</internal
+
+%<*driver
+
 \ProvidesFile{mcmthesis.dtx}
   [2021/01/05 v6.3.1 The Thesis Template Designed For MCM/ICM]
 \documentclass{ltxdoc}
@@ -143,7 +150,8 @@ and the derived files             \jobname.cls,
 \begin{document}
   \DocInput{\jobname.dtx}
 \end{document}
-%</driver>
+%</driver
+
 % \fi
 %
 % \CheckSum{530}
@@ -158,7 +166,8 @@ and the derived files             \jobname.cls,
 %   Asterisk      \*     Plus          \+     Comma         \,
 %   Minus         \-     Point         \.     Solidus       \/
 %   Colon         \:     Semicolon     \;     Less than     \<
-%   Equals        \=     Greater than  \>     Question mark \?
+%   Equals        \=     Greater than  \
+     Question mark \?
 %   Commercial at \@     Left bracket  \[     Backslash     \\
 %   Right bracket \]     Circumflex    \^     Underscore    \_
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
@@ -214,7 +223,8 @@ and the derived files             \jobname.cls,
 %
 % 我们以 \path{SOURCE} 代表你下载的源文件目录，在终端下执行以下命令。
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language=bash]
 cd SOURCE
@@ -225,7 +235,8 @@ xelatex mcmthesis-demo.tex
 xelatex mcmthesis-demo.tex
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 %
 % 你可以将生成的 \file{mcmthesis.cls} 拷贝至 \path{TEXMF/tex/latex/mcmthesis/}
@@ -265,25 +276,29 @@ xelatex mcmthesis-demo.tex
 % \pkg{mcmthesis} 定义了一些选项，用来控制模板的行为。
 % 你可以在载入文档类的时候指定这些选项的值，例如
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \documentclass[tcn = 12345, problem = B, titlepage = false]{mcmthesis}
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 %￼\DescribeMacro{\mcmsetup}你也可以使用 \cs{mcmsetup}^^A
 % \marg{key-value 列表} 来指定这些值，例如
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \documentclass{mcmthesis}
 \mcmsetup{tcn = 12345, problem = B, titlepage = false}
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 % 两种做法效果等同。
 %
@@ -341,13 +356,15 @@ xelatex mcmthesis-demo.tex
 % \subsection{摘要页头部设置}
 % \DescribeMacro{\headset}MCM/ICM 的主办方经常变动摘要页头部的年份及赛事名称说明的格式，可谓岁岁年年各不同。因此，模板很难保证这部分的格式与当年的要求完全一致，故而给出一个易于修改的接口。例如：
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \renewcommand{\headset}{{\Large\the\year}\\MCM/ICM\\Summary Sheet}
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 % 将会输出：
 % \begin{trivlist}\item
@@ -372,13 +389,15 @@ xelatex mcmthesis-demo.tex
 % 字符，可以自行使用合适中文支持方式。例如，使用 CTeX 宏集：
 %
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \usepackage[UTF8, nocap]{ctex}
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 %
 % \section{版本历史}
@@ -448,7 +467,8 @@ xelatex mcmthesis-demo.tex
 % We denote \path{SOURCE} as the folder, who contains the file you've
 % just downloaded. Execute these command in the terminal.
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language=bash]
 cd SOURCE
@@ -459,7 +479,8 @@ xelatex mcmthesis-demo.tex
 xelatex mcmthesis-demo.tex
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 %
 % To finish the installation, you could copy \file{mcmthesis.cls} to
@@ -505,25 +526,29 @@ xelatex mcmthesis-demo.tex
 % \pkg{mcmthesis} defined serval options to control the behaviour of
 % the template. You could specify these options while loading the class.
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \documentclass[tcn = 12345, problem = B, titlepage = false]{mcmthesis}
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 %￼\DescribeMacro{\mcmsetup}You may also use the command \cs{mcmsetup}^^A
 % \marg{key-value list} to specify them.
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \documentclass{mcmthesis}
 \mcmsetup{tcn = 12345, problem = B, titlepage = false}
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 % The two methods share the same effect.
 %
@@ -590,13 +615,15 @@ xelatex mcmthesis-demo.tex
 % \subsection{The headset of the Summary Sheet}
 % \DescribeMacro{\headset}Due to the frequent change of the headset's style of the Summary Sheet from the host of MCM/ICM, it's difficult for me to keep in with. Hence, a easy-to-modified interfaced is designed. Let's see an succinct example:
 % \iffalse
-%<*internal>
+%<*internal
+
 % \fi
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \renewcommand{\headset}{{\Large\the\year}\\MCM/ICM\\Summary Sheet}
 \end{lstlisting}
 % \iffalse
-%</internal>
+%</internal
+
 % \fi
 % while the output is:
 % \begin{trivlist}\item
@@ -641,7 +668,8 @@ xelatex mcmthesis-demo.tex
 % \section{The Implementation}
 % \subsection{Basic Information}
 %    \begin{macrocode}
-%<*class>
+%<*class
+
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{mcmthesis}
   [2021/01/05 v6.3.1 The Thesis Template Designed For MCM/ICM]
@@ -1078,11 +1106,14 @@ xelatex mcmthesis-demo.tex
 \lstloadlanguages{C,C++,Java,Matlab,Mathematica}
 %    \end{macrocode}
 %    \begin{macrocode}
-%</class>
-%<class>\endinput
+%</class
+
+%<class
+\endinput
 %    \end{macrocode}
 % \iffalse
-%<*demo>
+%<*demo
+
 %!TEX program = pdflatex|xelatex
 %%
 %% This is file `mcmthesis-demo.tex',
@@ -1315,8 +1346,10 @@ some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
 
 \end{appendices}
 \end{document}
-%</demo>
-%<*readme>
+%</demo
+
+%<*readme
+
 # The `mcmthesis` Class
 
 This class is designed for the MCM/ICM.
@@ -1357,18 +1390,22 @@ To install this class, you should
 
 If you are interested in the process of development you may observe
 
-<https://github.com/latexstudio-org/mcmthesis>
+<https://github.com/latexstudio-org/mcmthesis
+
 
 [latexstudio]: http://www.latexstudio.net/
 [liam-ctan]: http://www.ctan.org/author/huang-l
-%</readme>
-%<*license>
+%</readme
+
+%<*license
+
 Released under the [LaTeX Project Public License]
 (http://www.latex-project.org/lppl.txt), v1.3c or later.
 
 The package has status 'maintained': the current maintainer is
 [latexstudio](latexstudio@qq.com).
-%</license>
+%</license
+
 % \fi
 % \Finale
 \endinput

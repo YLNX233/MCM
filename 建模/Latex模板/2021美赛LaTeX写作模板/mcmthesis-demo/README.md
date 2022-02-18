@@ -12,7 +12,8 @@
 
 我们整理了学习资料包, 关注如下公众号回复:　**建模2020**  即可获取. 
 
-<img src="https://pics.latexstudio.net/wp-content/themes/dux/img/gongzhonghao5.jpg" alt="" width="350px">
+<img src="https://pics.latexstudio.net/wp-content/themes/dux/img/gongzhonghao5.jpg" alt="" width="350px"
+
 
 This class is designed for the MCM/ICM.
 
@@ -52,7 +53,8 @@ To install this class, you should
 
 If you are interested in the process of development you may observe
 
-<https://github.com/latexstudio-org/mcmthesis>
+<https://github.com/latexstudio-org/mcmthesis
+
 
 [latexstudio]: http://www.latexstudio.net/
 [liam-ctan]: http://www.ctan.org/author/huang-l

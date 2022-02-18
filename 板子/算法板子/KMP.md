@@ -14,7 +14,8 @@ void get_pi()
 	for(int l=1;l<len;l++)
 	{
 		int j = pi[l-1];
-		while(s[l]!=s[j] && j>0)
+		while(s[l]!=s[j] && j
+0)
 		{
 			j = pi[j-1];
 		}
@@ -31,7 +32,8 @@ KMP算法朴素的实现就是在 目标串+‘#’+源串的字符串上求pi�
 位点pi = len(t)就是在源串中出现t的末尾
 
 ```cpp
-vector<int> ans;
+vector<int
+ ans;
 void KMP()
 {
 	int lens = strlen(s);
@@ -45,7 +47,8 @@ void KMP()
 	
 	for(int i=lent-1;i<lens;i++)
 	{
-		if(i+lent+1 >= tmax) break;
+		if(i+lent+1 
+= tmax) break;
 		if(pi[i+lent+1] == lent)
 		{
 			ans.push_back(i-lent+1);

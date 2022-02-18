@@ -12,19 +12,26 @@ node_flow是边表的表头，仅存储出边、入边的编号
 
 struct edge_flow{
     edge_flow(int a, int b, llint cap,llint flow) {
-	    this->u = a;
-	    this->v = b;
-	    this->cap = cap;
-	    this->flow = flow;
+	    this-
+u = a;
+	    this-
+v = b;
+	    this-
+cap = cap;
+	    this-
+flow = flow;
     }
     int u, v;
     llint cap;
     llint flow;
 };
-vector<edge_flow> E;
+vector<edge_flow
+ E;
 struct node_flow {
-	vector<int> e;
-	node_flow() { e = *(new vector<int>);}
+	vector<int
+ e;
+	node_flow() { e = *(new vector<int
+);}
 };
 
 node_flow nod[MAXN];
@@ -80,7 +87,8 @@ llint ISAP(int Source, int Target)
 		for (int i = cur[ptr]; i < nod[ptr].e.size(); i++)
 		{
 			edge_flow& e = E[nod[ptr].e[i]];
-			if (e.cap > e.flow && level[ptr] - 1 == level[e.v])
+			if (e.cap 
+ e.flow && level[ptr] - 1 == level[e.v])
 			{
 				success = true;
 				higher_link[e.v] = nod[ptr].e[i];
@@ -96,7 +104,8 @@ llint ISAP(int Source, int Target)
 			for (auto i : nod[ptr].e)
 			{
 				edge_flow& e = E[i];
-				if (e.cap > e.flow) new_level = min(new_level, level[e.v]);
+				if (e.cap 
+ e.flow) new_level = min(new_level, level[e.v]);
 			}
 			if (--gap[level[ptr]] == 0)	break;//出现gap
 			level[ptr] = new_level + 1;
@@ -111,7 +120,8 @@ llint ISAP(int Source, int Target)
 //bfs分层
 bool BFS_markDepth()
 {
-	queue<int>q;
+	queue<int
+q;
 	q.push(t);	vis[t] = 1;	level[t] = 0;
 	while (!q.empty())
 	{
@@ -119,7 +129,8 @@ bool BFS_markDepth()
 		for (auto x : nod[p].e)
 		{
 			edge_flow& e = E[reverse(x)];
-			if (!vis[e.u] && e.cap > e.flow)
+			if (!vis[e.u] && e.cap 
+ e.flow)
 			{
 				vis[e.u] = true;
 				level[e.u] = level[e.v] + 1;

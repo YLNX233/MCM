@@ -6,9 +6,12 @@
 // Description : Sudoku in C++.
 //============================================================================
 
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <iostream
+
+#include <cstdlib
+
+#include <ctime
+
 
 using namespace std;
 

@@ -15,7 +15,8 @@ dev c++ 调试时候发生软件崩溃解决办法
 查找一个数，有则返回地址，没有返回-1
 
 lower_bound 返回最早能插入的位置
-    0 1 | 2 2 3 ->2
+    0 1 | 2 2 3 -
+2
 upper_bound 同理
 
 传参是x,x+n,tar,cmp,返回值是指针，需要与首地址相减
@@ -33,7 +34,8 @@ int binarySearch(int[] nums, int target) {
             return mid; 
         else if (nums[mid] < target)
             left = mid + 1;
-        else if (nums[mid] > target)
+        else if (nums[mid] 
+ target)
             right = mid - 1;
         }
     return -1;
@@ -54,7 +56,8 @@ int left_bound(int[] nums, int target) {
             right = mid;
         } else if (nums[mid] < target) {
             left = mid + 1;
-        } else if (nums[mid] > target) {
+        } else if (nums[mid] 
+ target) {
             right = mid;
         }
     }
@@ -75,7 +78,8 @@ int right_bound(int[] nums, int target) {
             left = mid + 1;
         } else if (nums[mid] < target) {
             left = mid + 1;
-        } else if (nums[mid] > target) {
+        } else if (nums[mid] 
+ target) {
             right = mid;
         }
     }
@@ -122,7 +126,8 @@ for(int i=1;i<=m;i++)
 long long fact(long long A)
 {
 	long long a = A;
-	for (int i = a - 1; i > 0; i--)
+	for (int i = a - 1; i 
+ 0; i--)
 		a *= i;
 
 	return a;
@@ -154,13 +159,15 @@ long long C(long long m, long long n)
 
 ```cpp
 int x = n;//n最多有一个质因子大于sqrt（n）
-for(int i = 2;i * i <= n && x > 1;i++){//严谨性：所有非质数因子已经被分解。可以预先算出质数表优化
+for(int i = 2;i * i <= n && x 
+ 1;i++){//严谨性：所有非质数因子已经被分解。可以预先算出质数表优化
 while(x % i == 0){
 x /= i;
 printf("%d ", i);
 }
 }
-if(x > 1) printf("%d ", x);
+if(x 
+ 1) printf("%d ", x);
 
 ```
 

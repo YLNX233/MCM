@@ -39,15 +39,19 @@ void merge(int l, int r)
 		num[p] = temp[p];
 }
 
-//归并排序：递归左->递归右->归并
+//归并排序：递归左-
+递归右-
+归并
 //下标从1开始，切分中间点为(左+右)/2,最小基本问题为一个数(左-右)=1
 void merge_sort(int l, int r)
 {
-	//printf("<%d,%d>\n", l, r);
+	//printf("<%d,%d
+\n", l, r);
 	if (r - l < 1)	return;
 	if (r - l == 1)
 	{
-		if (num[l] > num[r])
+		if (num[l] 
+ num[r])
 		{
 			reverse_num++;
 			int temp = num[l]; num[l] = num[r]; num[r] = temp;

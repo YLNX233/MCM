@@ -1,4 +1,5 @@
 # pypolt画图板子
+from turtle import width
 import matplotlib.pyplot as plt
 import numpy as np
 from math import sin
@@ -37,7 +38,7 @@ u = y
 v = -9.8*np.sin(x)/0.5 - 0.05*x/0.3/0.5
 color = np.sqrt(u**2 + v**2) # 颜色
 
-plt.quiver(x, y, u, v, color,) # 箭头
+plt.quiver(x, y, u*5, v*5, color,) # 箭头scale_units='dots',width = 10
 plt.streamplot(x, y, u, v, color=color,linewidth=v/10) # 流
 
 plt.colorbar()

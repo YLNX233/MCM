@@ -32,7 +32,9 @@ void update(int rt)
 //建立
 void build(snow)
 {
-	int mid=(l+r)>>1;
+	int mid=(l+r)
+
+1;
 
 	if(l==r) {	z[rt].sum=a[l]; return;}
 	
@@ -47,7 +49,9 @@ void build(snow)
 //查询[l,r],sum初始为0,tl,tr表示要查询的区间
 int se(snow,int tl,int tr,int sum)//t:target
 {
-	int mid=(l+r)>>1;
+	int mid=(l+r)
+
+1;
 	if(tl<=l&&r<=tr) return sum+z[rt].sum;//区间合并
 	if(tl<=mid)
 	{
@@ -57,12 +61,16 @@ int se(snow,int tl,int tr,int sum)//t:target
 	else return sum+se(rson,tl,tr,sum);//区间合并
 }
 
-//修改t->v
+//修改t-
+v
 void modify(snow,int t,int v)
 {
 	if(l==r) {z[rt].sum+=v; return;}
-	int mid=(l+r)>>1;
-	if(t>mid) modify(rson,t,v);
+	int mid=(l+r)
+
+1;
+	if(t
+mid) modify(rson,t,v);
 	else modify(lson,t,v);
 	update(rt);
 	return;
