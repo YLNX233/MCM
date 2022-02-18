@@ -55,6 +55,8 @@ class track:
         
         for i in range(1,self.n-1):
             self.curvature[i],vec = PJcurvature(self.x[i-1:i+2],self.y[i-1:i+2])
+            if(np.abs(self.curvature[i]>100)):
+                self.curvature[i] = self.curvature[i-1]
             self.direction[i] = np.arctan2(vec[0],vec[1])
 
         #plt.plot(self.curvature)
@@ -72,25 +74,30 @@ class track:
 
         self.xd,self.yd,self.heightd,self.curvatured,self.directiond = smoothed
 
-        plt.plot(self.heightd,c = 'red')
-        #plt.plot(self.curvatured,c = 'blue')
-        #plt.plot(self.directiond,c = 'black')
-        #plt.legend()
+        #plt.plot(self.heightd,c = 'red')
+        plt.plot(self.curvatured,c = 'blue')
+        plt.plot(self.directiond,c = 'black')
+        plt.legend()
         plt.show()
 
     def enquire(self,dist):
         idx = int((self.n * dist/self.traverse_dist))
         return self.heightd[idx],self.curvatured[idx],self.directiond[idx]
 
-    def visualize_map(self):
-        plt.scatter(self.x,self.y,c=self.height,s=0.5)
+    def visualize_map(self,c = False):
+        if c == True:
+            plt.scatter(self.x,self.y,c=self.height,s=0.5)
+        else:
+            plt.scatter(self.x,self.y,c='red',s=3)
         plt.colorbar()
-        plt.show()
+        #plt.show()
     
 
 route = pd.read_csv('codes\maps\Tokyo.csv')
 route = route.transpose().to_numpy()
+t0 = track(route)
 route = resample(route,10000)
-
 t = track(route)
-#t.visualize_map()
+#t.visualize_map(True)
+#t0.visualize_map(False)
+plt.show()

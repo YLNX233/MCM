@@ -36,5 +36,5 @@ def resample(data,steps):
     for iter in data:
         raw_index = np.linspace(0,iter.size,iter.size)
         smooth_index = np.linspace(0,iter.size,steps)
-        smoothed.append(spline(raw_index,iter)(smooth_index))
+        smoothed.append(spline(raw_index,iter,k=2)(smooth_index,))
     return smoothed
