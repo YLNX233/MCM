@@ -75,10 +75,10 @@ class track:
         self.xd,self.yd,self.heightd,self.curvatured,self.directiond = smoothed
 
         #plt.plot(self.heightd,c = 'red')
-        plt.plot(self.curvatured,c = 'blue')
-        plt.plot(self.directiond,c = 'black')
-        plt.legend()
-        plt.show()
+        #plt.plot(self.curvatured,c = 'blue')
+        #plt.plot(self.directiond,c = 'black')
+        #plt.legend()
+        #plt.show()
 
     def enquire(self,dist):
         idx = int((self.n * dist/self.traverse_dist))
@@ -98,6 +98,6 @@ route = route.transpose().to_numpy()
 t0 = track(route)
 route = resample(route,10000)
 t = track(route)
-#t.visualize_map(True)
-#t0.visualize_map(False)
+t.visualize_map(True)
+t0.visualize_map(False)
 plt.show()
