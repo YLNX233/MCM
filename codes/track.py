@@ -84,13 +84,13 @@ class track:
         self.grad = savgol_filter(self.grad,2001,1)
         # 卷积窗口
         
-        plt.plot((self.heightd - self.heightd.mean())/(self.heightd.max() - self.heightd.min()) ,c = 'red')
+        #plt.plot((self.heightd - self.heightd.mean())/(self.heightd.max() - self.heightd.min()) ,c = 'red')
         #plt.plot(self.curvatured,c = 'blue')
         #plt.plot(self.directiond,c = 'black')
-        plt.plot(self.grad,c = 'black')
+        #plt.plot(self.grad,c = 'black')
         #plt.plot(savgol_filter(self.grad,121,1))
         #plt.legend()
-        plt.show()
+        #plt.show()
 
     def enquire(self,dist):
         idx = int((self.n * dist/self.traverse_dist))
@@ -106,8 +106,8 @@ class track:
 
 route = pd.read_csv('codes\maps\Tokyo.csv')
 route = route.transpose().to_numpy()
-route = resample(route,20000)
+route = resample(route,STEPS)
 t = track(route)
-#t.visualize_map(True)
-plt.show()
-print(t.traverse_dist)
+t.visualize_map(True)
+#plt.show()
+print(t.enquire(10))
