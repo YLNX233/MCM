@@ -1,3 +1,4 @@
+from cmath import atan
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -84,7 +85,7 @@ class track:
         self.curvatured = savgol_filter(self.curvatured,101,1)
         self.directiond = savgol_filter(self.curvatured,101,1)
         for i in range(1,self.n-1):
-            self.grad[i] = (self.heightd[i+1] - self.heightd[i-1])
+            self.grad[i] =(self.heightd[i+1] - self.heightd[i-1]) / (2*self.traverse_dist/self.n)
         self.grad = savgol_filter(self.grad,2001,1)
         # 卷积窗口
         
@@ -108,10 +109,11 @@ class track:
         plt.colorbar()
         #plt.show()
 
+'''
 route = pd.read_csv('codes\maps\Tokyo.csv')
 route = route.transpose().to_numpy()
-route = resample(route)
+route = resample(route,STEPS)
 t = track(route)
 t.visualize_map(True)
 #plt.show()
-print(t.enquire(10))
+print(t.enquire(10))'''
