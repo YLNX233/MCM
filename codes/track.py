@@ -10,6 +10,10 @@ EARTH_R = 6371.393
 STEPS = 20000 # 地图中点的数目
 eps = 0.0000001
 
+'''
+单位: 千米,小时,焦耳,瓦特
+'''
+
 class track:
     '''
     功能:计算赛道上关于路程的信息,并提供关于 dist 的查询
@@ -17,7 +21,7 @@ class track:
     '''
     def __init__(self,route) -> None:
         self.y,self.x = self.longitudeLatitude_2_xy(route[0],route[1])
-        self.height = route[2]
+        self.height = route[2]/1000
         self.n = self.x.size
         self.traverse_dist = 0
         self.d_list = [0]
@@ -106,7 +110,7 @@ class track:
 
 route = pd.read_csv('codes\maps\Tokyo.csv')
 route = route.transpose().to_numpy()
-route = resample(route,STEPS)
+route = resample(route)
 t = track(route)
 t.visualize_map(True)
 #plt.show()
