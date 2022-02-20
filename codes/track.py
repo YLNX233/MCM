@@ -22,7 +22,9 @@ class track:
     '''
     def __init__(self,route) -> None:
         self.y,self.x = self.longitudeLatitude_2_xy(route[0],route[1])
-        self.height = route[2]/1000
+        self.y = self.y * 1000
+        self.x = self.x * 1000
+        self.height = route[2]
         self.n = self.x.size
         self.traverse_dist = 0
         self.d_list = [0]
@@ -86,7 +88,7 @@ class track:
         self.directiond = savgol_filter(self.curvatured,101,1)
         for i in range(1,self.n-1):
             self.grad[i] =(self.heightd[i+1] - self.heightd[i-1]) / (2*self.traverse_dist/self.n)
-        self.grad = savgol_filter(self.grad,2001,1)
+        self.grad = savgol_filter(self.grad,1001,1)
         # 卷积窗口
         
         #plt.plot((self.heightd - self.heightd.mean())/(self.heightd.max() - self.heightd.min()) ,c = 'red')
@@ -116,4 +118,6 @@ route = resample(route,STEPS)
 t = track(route)
 t.visualize_map(True)
 #plt.show()
-print(t.enquire(10))'''
+print(t.enquire(10000))
+print(t.enquire(20000))
+print(t.enquire(40000))'''
