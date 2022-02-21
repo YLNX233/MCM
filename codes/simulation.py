@@ -1,4 +1,5 @@
 from cmath import e
+from turtle import color
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -114,35 +115,63 @@ class simulation:
             self.Fa_list.append(self.Fa)
             self.d_list.append(self.d)
             time += delta_t
+        return time
 
     def graphing(self):
-        plt.subplot(3,2,1)
-        plt.plot(self.v_list)
+        plt.grid(axis='x')
+        plt.plot(self.d_list,self.v_list)
+        plt.xticks(size = 0)
         #plt.plot(v_e_list)
-        plt.title('v_list')
-        plt.subplot(3,2,2)
-        plt.plot(self.E_list)
-        plt.title('E_list')
+        plt.title('$v-d$',loc = 'right',y=0)
+        
+        plt.subplot(6,1,2)
+        plt.grid(axis='x',color = '#cccccc')
+        plt.plot(self.d_list,self.E_list)
+        plt.title('$E_{rem}-d$',loc = 'right',y=0)
+        plt.xticks(size = 0) 
 
-        plt.subplot(3,2,3)
-        plt.plot(self.Fa_list)
-        plt.title('Fa_list')
+        plt.subplot(6,1,3)
+        plt.grid(axis='x',color = '#cccccc')
+        plt.plot(self.d_list,self.Fa_list)
+        plt.title('$FA-d$',loc = 'right',y=0)
+        plt.xticks(size = 0) 
 
-        plt.subplot(3,2,4)
-        plt.plot(self.P_l_list)
-        plt.plot(self.P_act_list)
-        plt.title('P_s_list')
+        plt.subplot(6,1,4)
+        plt.grid(axis='x',color = '#cccccc')
+        plt.plot(self.d_list,self.P_l_list)
+        plt.plot(self.d_list,self.P_act_list)
+        plt.title('$P_s-d$',loc = 'right',y=0)
+        plt.xticks(size = 0) 
 
-        plt.subplot(3,2,5)
-        plt.plot(self.P_b_list)
-        plt.title('Pb')
+        plt.subplot(6,1,5)
+        plt.grid(axis='x',color = '#cccccc')
+        plt.plot(self.d_list,self.P_b_list)
+        plt.title('$P_b-d$',loc = 'right',y=0)
+        plt.xticks(size = 0) 
 
-        plt.subplot(3,2,6)
-        plt.plot(self.P_e_list)
-        plt.title('pe')
+        plt.subplot(6,1,6)
+        plt.grid(axis='x',color = '#cccccc')
+        plt.plot(self.d_list,self.P_e_list)
+        plt.title('$P_e-d$',loc = 'right',y=0)
 
-s1 = simulation()
-s1.sim_run()
-s1.graphing()
 
+
+
+args_defalut = [0, 12e-3, 20, 4.93, 55, 2403.5, 0.3, 3, 0.25, 0.2]
+arg_list = []
+t_list = []
+for i in range(100):
+    σ = 2.8+(4)/100*i
+    arg_list.append(σ)
+
+    args_defalut[3] = σ
+
+    s = simulation(args_defalut)
+    t = s.sim_run()
+    t_list.append(t)
+
+print(arg_list)
+print(t_list)
+plt.plot(arg_list,t_list,c = 'blue')
 plt.show()
+    
