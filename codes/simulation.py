@@ -1,5 +1,5 @@
 from cmath import e
-from turtle import color
+from turtle import color, right
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -118,11 +118,13 @@ class simulation:
         return time
 
     def graphing(self):
+        plt.subplot(6,1,1)
         plt.grid(axis='x')
         plt.plot(self.d_list,self.v_list)
-        plt.xticks(size = 0)
-        #plt.plot(v_e_list)
+        plt.plot(self.d_list,self.v_e_list)
         plt.title('$v-d$',loc = 'right',y=0)
+        plt.legend(['$v$','$v_{exp}$'],loc = 'right',frameon=False,bbox_to_anchor=(1.1, 0.5))
+        plt.xticks(size = 0)
         
         plt.subplot(6,1,2)
         plt.grid(axis='x',color = '#cccccc')
@@ -140,7 +142,8 @@ class simulation:
         plt.grid(axis='x',color = '#cccccc')
         plt.plot(self.d_list,self.P_l_list)
         plt.plot(self.d_list,self.P_act_list)
-        plt.title('$P_s-d$',loc = 'right',y=0)
+        plt.legend(['$P_l$','$P_{act}$'],loc = 'right',frameon=False,bbox_to_anchor=(1.1, 0.5))
+        plt.title('$P-d$',loc = 'right',y=0)
         plt.xticks(size = 0) 
 
         plt.subplot(6,1,5)
@@ -154,9 +157,15 @@ class simulation:
         plt.plot(self.d_list,self.P_e_list)
         plt.title('$P_e-d$',loc = 'right',y=0)
 
+'''此处用于画图
+s = simulation()
+s.sim_run()
+s.graphing()
+plt.show()
+'''
 
-
-
+# 此处用于灵敏度分析
+# 默认参数。对应关系可以看上面class __init__
 args_defalut = [0, 12e-3, 20, 4.93, 55, 2403.5, 0.3, 3, 0.25, 0.2]
 arg_list = []
 t_list = []
@@ -174,4 +183,3 @@ print(arg_list)
 print(t_list)
 plt.plot(arg_list,t_list,c = 'blue')
 plt.show()
-    
