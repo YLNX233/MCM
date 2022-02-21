@@ -100,7 +100,6 @@ class track:
 
     def enquire(self,dist):
         idx = int((self.n * dist/self.traverse_dist))
-        print(idx)
         return self.heightd[idx],self.curvatured[idx],self.directiond[idx],self.grad[idx]
 
     def visualize_map(self,c = False):
@@ -112,12 +111,12 @@ class track:
         #plt.show()
 
 '''
-route = pd.read_csv('codes\maps\Tokyo.csv')
+route = pd.read_csv('codes\maps\Flanders.csv')
 route = route.transpose().to_numpy()
 route = resample(route,STEPS)
 t = track(route)
 t.visualize_map(True)
-#plt.show()
+plt.show()
 print(t.enquire(-10000))
 print(t.enquire(20000))
 print(t.enquire(40000))'''
