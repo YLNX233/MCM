@@ -32,7 +32,7 @@ class track:
         self.direction = np.zeros(self.n)
         self.grad = np.zeros(self.n)
         self.delta_dist = (self.traverse_dist)/(self.n)
-        self.get_curvature_direction()
+        self.get_direction()
         self.xd=self.yd=self.heightd=self.curvatured=self.directiond = np.zeros(self.n)
         self.resample_by_dist()
 
@@ -53,24 +53,13 @@ class track:
             self.d_list.append(self.traverse_dist)
         self.d_list = np.array(self.d_list)
     
-    def get_curvature_direction(self):
+    def get_direction(self):
         # 首尾需要特判
-        vec = 0
-        self.curvature[0],vec = PJcurvature(np.array([self.x[0]+eps,self.x[0],self.x[1]]),np.array([self.y[0]+eps,self.y[0],self.y[1]]))
-        self.direction[0] = np.arctan2(vec[0],vec[1])
-        self.curvature[self.n-1],vec = PJcurvature(np.array([self.x[self.n-2],self.x[self.n-1],self.x[self.n-1]+eps]),
-                                                            np.array([self.y[self.n-2],self.y[self.n-1],self.y[self.n-1]+eps]))
-        self.direction[self.n-1] = np.arctan2(vec[0],vec[1])
+        self.direction[0] = np.arctan2(self.y[1]-self.y[0],self.x[1]-self.x[0])
+        self.direction[self.n - 1] = np.arctan2(self.y[self.n-1]-self.y[self.n-2],self.x[self.n-1]-self.x[self.n-2])
         
         for i in range(1,self.n-1):
-            self.curvature[i],vec = PJcurvature(self.x[i-1:i+2],self.y[i-1:i+2])
-            if(np.abs(self.curvature[i])>100):
-                self.curvature[i] = self.curvature[i-1]
-            self.direction[i] = np.arctan2(vec[0],vec[1])
-
-        #plt.plot(self.curvature)
-        #plt.plot(self.direction)
-        #plt.show()
+            self.direction[i] = np.arctan2(self.y[i]-self.y[i-1],self.x[i]-self.x[i-1])
         
 
     def resample_by_dist(self):
@@ -103,20 +92,23 @@ class track:
         return self.heightd[idx],self.curvatured[idx],self.directiond[idx],self.grad[idx]
 
     def visualize_map(self,c = False):
+        
         if c == True:
             plt.scatter(self.x,self.y,c=self.height,s=0.5)
         else:
             plt.scatter(self.x,self.y,c='red',s=3)
-        plt.colorbar()
+        #plt.colorbar()
         #plt.show()
 
 '''
-route = pd.read_csv('codes\maps\Flanders.csv')
+route = pd.read_csv('codes\maps\Hohhot.csv')
 route = route.transpose().to_numpy()
 route = resample(route,STEPS)
 t = track(route)
 t.visualize_map(True)
+print(t.traverse_dist)
 plt.show()
-print(t.enquire(-10000))
-print(t.enquire(20000))
-print(t.enquire(40000))'''
+plt.fill_between(t.d_list, t.heightd, color='blue', alpha=0.3)
+plt.xlabel('$distance \quad (m)$')
+plt.ylabel('$elevation \quad (m)$')
+plt.show()'''
